@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping and Checkout</title>
+  <link rel="stylesheet" href="basket.css">
+</head>
+<body>
+
+  <h1>My shopping bag</h1>
+  <div id="cart-item">
+    <a href="index.html"><button>Home</button></a>
+    <a href="main-course.html"><button>Main Course</button></a>
+    <a href="dessert.html"><button>Dessert</button></a>
+    <a href="drinks.html"><button>Drinks</button></a>
+    <a href="basket.html"><button>Basket</button></a>
+
+    <img src="Crispy pata.jpg" alt="Crispy Pata" >
+    <p>Crispy pata - ₱780</p>
+    <label>Quantity:
+      <button onclick="decreaseQuantity()">-</button>
+      <input type="text" id="quantity" value="1" size="1" readonly>
+      <button onclick="increaseQuantity()">+</button>
+    </label>
+  </div>
+
+  <br>
+  <label><input type="checkbox"> Buying as a Gift? Tick here to include gift wrapping.</label><br>
+  <label><input type="checkbox"> Do you want to subscribe to our newsletter for limited offers and promotions?</label><br><br>
+
+  <hr>
+
+  <h2>Items overview</h2>
+  <div>
+    <img src="Crispy pata.jpg" alt="Crispy Pata">
+    <p>Crispy pata - ₱780</p>
+    <p>Quantity: 1</p>
+  </div>
+
+  <h3>Available Shipping Methods</h3>
+  <label><input type="radio" name="shipping" checked> Post Office Deliver (Free)</label><br>
+
+  <h3>Payment Options</h3>
+  <label><input type="radio" name="payment" checked> Mobile Pay</label><br>
+
+  <hr>
+
+  <h2>Payment details</h2>
+  <form>
+    <label>Email Address:</label><br>
+    <input type="email"><br><br>
+
+    <label>Full Name:</label><br>
+    <input type="text"><br><br>
+
+    <label>Address:</label><br>
+    <input type="text"><br><br>
+
+    <label>City:</label><br>
+    <input type="text"><br><br>
+
+    <label>Zip Code:</label><br>
+    <input type="text"><br><br>
+
+    <button type="submit">Finish purchase</button>
+  </form>
+
+  <!-- ✅ JavaScript goes here before closing body tag -->
+  <script>
+    function increaseQuantity() {
+      const qtyInput = document.getElementById('quantity');
+      let qty = parseInt(qtyInput.value);
+      qtyInput.value = qty + 1;
+    }
+
+    function decreaseQuantity() {
+      const qtyInput = document.getElementById('quantity');
+      let qty = parseInt(qtyInput.value);
+      if (qty > 1) {
+        qtyInput.value = qty - 1;
+      }
+    }
+
+    function removeItem() {
+      const item = document.getElementById('cart-item');
+      item.remove();
+    }
+  </script>
+
+</body>
+</html>
